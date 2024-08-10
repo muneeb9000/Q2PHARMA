@@ -34,7 +34,7 @@ class UnitsController extends Controller
      */
     public function store(StoreUnitRequest $request)
     {
-    $validatedData = $request->validate();
+    $validatedData = $request->validated();
     Units::create($validatedData);
     return redirect()->route('units.index')->with('success', 'Unit created successfully.');
     }
@@ -64,7 +64,7 @@ class UnitsController extends Controller
      */
     public function update(UpdateUnitRequest $request, string $id)
     {
-        $validatedData = $request->validate();
+        $validatedData = $request->validated();
         $unit = Units::findOrFail($id);
         $unit->update($validatedData);
 

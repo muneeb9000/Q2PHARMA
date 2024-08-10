@@ -65,13 +65,13 @@
                                         <i class="fe fe-chevron-right side-menu__angle"></i></a>
                                     <ul class="slide-menu child2">
                                         <li class="slide">
-                                            <a href="#" class="side-menu__item">Add Product</a>
+                                            <a href="{{ route('products.create') }}" class="side-menu__item">Add Product</a>
                                         </li>
                                         <li class="slide">
-                                            <a href="#" class="side-menu__item">Product List</a>
+                                            <a href="{{ route('products.index') }}" class="side-menu__item">Product List</a>
                                         </li>
                                         <li class="slide">
-                                            <a href="#" class="side-menu__item">Product Import</a>
+                                            <a href="{{ route('products.import') }}" class="side-menu__item">Product Import</a>
                                         </li>
                                     </ul>
                                 </li>
@@ -80,10 +80,10 @@
                                         <i class="fe fe-chevron-right side-menu__angle"></i></a>
                                     <ul class="slide-menu child2">
                                         <li class="slide">
-                                            <a href="#" class="side-menu__item">Add Supplier</a>
+                                            <a href="{{ route('supplier.create') }}" class="side-menu__item">Add Supplier</a>
                                         </li>
                                         <li class="slide">
-                                            <a href="#" class="side-menu__item">Supplier List</a>
+                                            <a href="{{ route('supplier.index') }}" class="side-menu__item">Supplier List</a>
                                         </li>
                                     </ul>
                                 </li>

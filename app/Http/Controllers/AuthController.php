@@ -22,12 +22,14 @@ class AuthController extends Controller
             'email' => 'required|email',
             'password' => 'required'
         ]);
+        
 
         // Attempt to authenticate the user
         $credentials = $request->only('email', 'password');
 
         if (Auth::attempt($credentials)) {
             // Authentication passed
+            
             $request->session()->regenerate();
 
             return redirect()->intended('dashboard');
