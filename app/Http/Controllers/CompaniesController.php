@@ -11,6 +11,7 @@ class CompaniesController extends Controller
 {
     public function index()
     {
+      
         $companies = Companies::all();
         return view('companies.list', compact('companies'));
     }

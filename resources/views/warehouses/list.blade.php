@@ -4,12 +4,12 @@
 <div class="main-content app-content">
     <div class="container-fluid">
         <div class="d-md-flex d-block align-items-center justify-content-between my-4 page-header-breadcrumb">
-            <h1 class="page-title fw-semibold fs-18 mb-0">SUPPLIER LIST</h1>
+            <h1 class="page-title fw-semibold fs-18 mb-0">WAREHOUSE LIST</h1>
             <div class="ms-md-1 ms-0">
                 @php
                     $breadcrumbs = [
                         ['name' => 'Dashboard', 'url' => route('home'), 'icon' => 'ti ti-home-2'],
-                        ['name' => 'Supplier', 'url' => route('supplier.index'), 'icon' => 'ti ti-user'],
+                        ['name' => 'Warehouse', 'url' => route('warehouse.index'), 'icon' => 'ti ti-box'],
                     ];
                 @endphp
                 <x-breadcrumb :items="$breadcrumbs" />
@@ -19,7 +19,7 @@
             <div class="col-xl-12">
                 <div class="card custom-card">
                     <div class="card-header">
-                        <div class="card-title">Supplier List</div>
+                        <div class="card-title">Warehouse List</div>
                     </div>
                     <div class="card-body">
                         <div class="table-responsive">
@@ -28,32 +28,36 @@
                                     <tr>
                                         <th>#</th>
                                         <th>Company Name</th>
-                                        <th>Supplier</th>
                                         <th>Name</th>
-                                        <th>Email</th>
-                                        <th>Phone</th>
+                                        <th>Code</th>
+                                        <th>Mobile Number</th>
                                         <th>Address</th>
+                                        <th>Description</th>
                                         <th>Action</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @isset($suppliers)
-                                    @foreach($suppliers as $index => $supplier)
+                                    @isset($warehouses)
+                                    @foreach($warehouses as $index => $warehouse)
                                     <tr>
                                         <td>{{ $index + 1 }}</td>
-                                        <td>{{ $supplier->company->company_name }}</td>
-                                        <td>{{ $supplier->sup_company }}</td>
-                                        <td>{{ $supplier->name }}</td>
-                                        <td>{{ $supplier->email }}</td>
-                                        <td>{{ $supplier->phone }}</td>
-                                        <td>{{ $supplier->address }}</td>
+                                        <td>{{ $warehouse->companies->company_name }}</td>
+                                        <td>{{ $warehouse->name }}</td>
+                                        <td>{{ $warehouse->code }}</td>
+                                        <td>{{ $warehouse->mobile_no }}</td>
+                                        <td>{{ $warehouse->address }}</td>
+                                        <td>{{ $warehouse->description }}</td>
                                         <td>
                                             <div class="hstack gap-2 fs-15">
-                                                <a href="{{ route('supplier.edit', $supplier->id) }}" class="btn btn-icon btn-sm btn-info-light m-1"><i class="ri-edit-line"></i></a>
-                                                <form method="POST" action="{{ route('supplier.destroy', $supplier->id) }}">
+                                                <a href="{{ route('warehouse.edit', $warehouse->id) }}" class="btn btn-icon btn-sm btn-info-light m-1">
+                                                    <i class="ri-edit-line"></i>
+                                                </a>
+                                                <form method="POST" action="{{ route('warehouse.destroy', $warehouse->id) }}">
                                                     @csrf
                                                     @method('DELETE')
-                                                    <button type="submit" class="btn btn-icon btn-sm btn-danger-light m-1"><i class="ri-delete-bin-line"></i></button>
+                                                    <button type="submit" class="btn btn-icon btn-sm btn-danger-light m-1">
+                                                        <i class="ri-delete-bin-line"></i>
+                                                    </button>
                                                 </form>
                                             </div>
                                         </td>

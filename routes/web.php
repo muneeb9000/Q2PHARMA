@@ -12,11 +12,18 @@ use App\Http\Controllers\UnitsController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ProductsController;
 use App\Http\Controllers\SupplierController;
+use App\Http\Controllers\WarehousesController;
+use App\Http\Controllers\PurchasesController;
+
 
 // Public Auth Routes
 Route::get('/login', [AuthController::class, 'index'])->name('login');
 Route::post('/login', [AuthController::class, 'login']);
 Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
+
+
+
+
 
 // Apply middleware to routes
 Route::middleware('CustomAuth')->group(function () {
@@ -29,6 +36,8 @@ Route::middleware('CustomAuth')->group(function () {
     Route::resource('category', CategoryController::class);
     Route::resource('products', ProductsController::class);
     Route::resource('supplier', SupplierController::class);
+    Route::resource('warehouse', WarehousesController::class);
+    Route::resource('purchases', PurchasesController::class);
     Route::get('products/import', [ProductsController::class, 'import'])->name('products.import');
 
 
@@ -40,6 +49,9 @@ Route::middleware('CustomAuth')->group(function () {
     Route::get('/get-sub-areas/{areaId}', [SubAreaController::class, 'getSubAreas']);
     Route::get('/get-cities/{companyId}', [CitiesController::class, 'getCities']);
     Route::get('/get-categories/{companyId}', [ProductsController::class, 'getCategories']);
+    Route::get('get-suppliers/{companyId}', [PurchasesController::class, 'getSuppliers']);
+    Route::get('get-warehouses/{companyId}', [PurchasesController::class, 'getWarehouses']);
+   
 
     // Auth Routes
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('home');

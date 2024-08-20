@@ -92,10 +92,10 @@
                                         <i class="fe fe-chevron-right side-menu__angle"></i></a>
                                     <ul class="slide-menu child2">
                                         <li class="slide">
-                                            <a href="#" class="side-menu__item">Add Warehouses</a>
+                                            <a href="{{ route('warehouse.create') }}" class="side-menu__item">Add Warehouses</a>
                                         </li>
                                         <li class="slide">
-                                            <a href="#" class="side-menu__item">Warehouses List</a>
+                                            <a href="{{ route('warehouse.index') }}" class="side-menu__item">Warehouses List</a>
                                         </li>
                                     </ul>
                                 </li>
@@ -104,10 +104,10 @@
                                         <i class="fe fe-chevron-right side-menu__angle"></i></a>
                                     <ul class="slide-menu child2">
                                         <li class="slide">
-                                            <a href="#" class="side-menu__item">Add Purchase</a>
+                                            <a href="{{ route('purchases.create') }}" class="side-menu__item">Add Purchase</a>
                                         </li>
                                         <li class="slide">
-                                            <a href="#" class="side-menu__item">Purchase List</a>
+                                            <a href="{{ route('purchases.index') }}" class="side-menu__item">Purchase List</a>
                                         </li>
                                         <li class="slide">
                                             <a href="#" class="side-menu__item">Return Purchase</a>

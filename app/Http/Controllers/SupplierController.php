@@ -16,7 +16,7 @@ class SupplierController extends Controller
     public function index()
     {
         $companies = companies::all();
-        $suppliers = Supplier::all();
+        $suppliers = Supplier::with('company')->get();
         return view ('supplier.list',compact('companies','suppliers'));
 
     }
@@ -27,7 +27,7 @@ class SupplierController extends Controller
     public function create()
     {
         $companies = companies::all(); 
-            return view('supplier.add', compact('companies'));
+         return view('supplier.add', compact('companies'));
     }
 
     /**
@@ -35,10 +35,12 @@ class SupplierController extends Controller
      */
     public function store(StoreSupplierRequest $request)
     {
+    
         $validatedData = $request->validated();
-        Companies::create($validatedData);
+        Supplier::create($validatedData);
         return redirect()->route('supplier.index')->with('Success', 'Supplier created successfully');
     }
+
 
     /**
      * Display the specified resource.

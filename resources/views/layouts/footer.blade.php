@@ -44,7 +44,7 @@
 <script src="{{ asset('admin/assets/js/custom-switcher.min.js') }}"></script>
 <script src="{{ asset('admin/assets/js/custom.js') }}"></script>
 
-<script>
+
 
 <!-- Custom Script to Set the Current Year -->
 <script>
