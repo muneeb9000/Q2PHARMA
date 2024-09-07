@@ -20,6 +20,10 @@ class PurchasesDetails extends Model
    {
     return $this->belongsTo(Products::class,'products_id');
    }
+   public function purchaseDetails()
+   {
+    return $this->hasMany(PurchasesDetails::class);
+   }
     
 
 }   

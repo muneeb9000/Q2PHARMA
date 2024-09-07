@@ -37,4 +37,8 @@ class Customers extends Model
         return $this->belongsTo(SubArea::class, 'sub_areas_id');
 
     }
+    public function customers() {
+
+        return $this->belongsTo(Customers::class, 'customers_id');
+    }
 }

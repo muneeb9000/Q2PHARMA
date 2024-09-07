@@ -24,7 +24,7 @@ return new class extends Migration
             $table->string('ntn_no');
             $table->string('gst_no');
             $table->date('license_issue_date');
-            $table->date('license_expiry_date')->default('9999-12-31')->change();
+            $table->date('license_expiry_date');
             $table->string('ceo_name');
             $table->string('ceo_number');
             $table->string('ceo_email');

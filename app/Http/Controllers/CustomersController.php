@@ -10,6 +10,7 @@ use App\Models\Areas;
 use App\Models\SubArea;
 use App\Http\Requests\StoreCustomersRequest;
 use App\Http\Requests\UpdateCustomersRequest;
+use App\Http\Resources\CustomerResource;
 
 class CustomersController extends Controller
 {
@@ -43,7 +44,7 @@ class CustomersController extends Controller
      */
     public function store(StoreCustomersRequest $request)
     {
-        $validatedData = $request->validate();
+        $validatedData = $request->validated();
         Customers::create($validatedData);
         return redirect()->route('customers.index')->with('success', 'Customer created successfully.');
     }
@@ -75,7 +76,7 @@ class CustomersController extends Controller
      */
     public function update(UpdateCustomersRequest $request, $id)
     {
-        $validatedData = $request->validate();
+        $validatedData = $request->validated();
         Customers::whereId($id)->update($validatedData);
         return redirect()->route('customers.index')->with('success', 'Customer updated successfully.');
     }
@@ -89,4 +90,11 @@ class CustomersController extends Controller
         $customer->delete();
         return redirect()->route('customers.index')->with('success', 'Customer deleted successfully.');
     }
+
+    public function apiIndex()
+    {
+        $customers = Customers::with(['company', 'city', 'area', 'sub_area'])->get();
+        return CustomerResource::collection($customers);
+    }
+
 }

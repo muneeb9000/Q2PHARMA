@@ -21,6 +21,7 @@ return new class extends Migration
             $table->string('sku')->unique(); 
             $table->string('batch_number')->nullable();
             $table->integer('reorder_level')->default(0); 
+            $table->string('current_stock');
             $table->string('strength')->nullable();
             $table->unsignedBigInteger('purchase_unit_id');
             $table->unsignedBigInteger('sale_unit_id');

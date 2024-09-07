@@ -40,7 +40,7 @@ class SubAreaController extends Controller
      */
     public function store(StoreSubAreaRequest $request)
     {
-        $request->validate();
+        $request->validated();
         SubArea::create($request->all());
         return redirect()->route('subarea.index')->with('success', 'Sub Area created successfully.');
     }
@@ -62,7 +62,7 @@ class SubAreaController extends Controller
      */
     public function update(UpdateSubAreaRequest $request, string $id)
     {
-        $request->validate();
+        $request->validated();
         $subarea = SubArea::findOrFail($id);
         $subarea->update($request->all());
 

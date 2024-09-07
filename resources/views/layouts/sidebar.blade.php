@@ -109,62 +109,22 @@
                                         <li class="slide">
                                             <a href="{{ route('purchases.index') }}" class="side-menu__item">Purchase List</a>
                                         </li>
-                                        <li class="slide">
-                                            <a href="#" class="side-menu__item">Return Purchase</a>
-                                        </li>
                                     </ul>
                                 </li>
-                                <li class="slide has-sub">
-                                    <a href="#" class="side-menu__item">Stock
-                                        <i class="fe fe-chevron-right side-menu__angle"></i></a>
-                                    <ul class="slide-menu child2">
-                                        <li class="slide">
-                                            <a href="#" class="side-menu__item">Stock Status</a>
-                                        </li>
-                                        <li class="slide">
-                                            <a href="#" class="side-menu__item">Expire Stock</a>
-                                        </li>
-                                        <li class="slide">
-                                            <a href="#" class="side-menu__item">Add Transfer</a>
-                                        </li>
-                                        <li class="slide">
-                                            <a href="#" class="side-menu__item">Transfer List</a>
-                                        </li>
-                                    </ul>
-                                </li>
+                               
                                 <li class="slide has-sub">
                                     <a href="#" class="side-menu__item">Sales
                                         <i class="fe fe-chevron-right side-menu__angle"></i></a>
                                     <ul class="slide-menu child2">
                                         <li class="slide">
-                                            <a href="#" class="side-menu__item">New Sale</a>
+                                            <a href="{{ route('sales.create') }}" class="side-menu__item">New Sale</a>
                                         </li>
                                         <li class="slide">
-                                            <a href="#" class="side-menu__item">Sales List</a>
-                                        </li>
-                                        <li class="slide">
-                                            <a href="#" class="side-menu__item">Return Sale</a>
-                                        </li>
-                                        <li class="slide">
-                                            <a href="#" class="side-menu__item">Delivery Note</a>
+                                            <a href="{{ route('sales.index') }}" class="side-menu__item">Sales List</a>
                                         </li>
                                     </ul>
                                 </li>
-                                <li class="slide has-sub">
-                                    <a href="#" class="side-menu__item">Pre Order
-                                        <i class="fe fe-chevron-right side-menu__angle"></i></a>
-                                    <ul class="slide-menu child2">
-                                        <li class="slide">
-                                            <a href="#" class="side-menu__item">New Order</a>
-                                        </li>
-                                        <li class="slide">
-                                            <a href="#" class="side-menu__item">Order List</a>
-                                        </li>
-                                    </ul>
-                                </li>
-                                <li class="slide">
-                                    <a href="#" class="side-menu__item">Print Labels</a>
-                                </li>
+                               
                              </ul>
                                 <li class="slide__category"><span class="category-name">AREA Section</span></li>
                                      <li class="slide has-sub">
@@ -214,29 +174,17 @@
                                   </a>
                                   <ul class="slide-menu child1">
                                    <li class="slide">
-                                       <a href="#" class="side-menu__item">Accounts</a>
-                                   </li>
-                                   <li class="slide">
-                                    <a href="#" class="side-menu__item">Sales Invoices</a>
+                                    <a href="{{ route('sales.invoices') }}" class="side-menu__item">Sales Invoices</a>
                                    </li>   
                                    <li class="slide">
-                                    <a href="#" class="side-menu__item">Purchase Invoices</a>
+                                    <a href="{{ route('purchases.invoices') }}" class="side-menu__item">Purchase Invoices</a>
                                    </li> 
                                    <li class="slide">
-                                    <a href="#" class="side-menu__item">Add Income</a>
+                                    <a href="{{ route('accounts.create') }}" class="side-menu__item">Add Transaction</a>
                                    </li> 
                                    <li class="slide">
-                                    <a href="#" class="side-menu__item">Add Expense</a>
+                                    <a href="{{ route('accounts.index') }}" class="side-menu__item">Transaction List</a>
                                    </li>
-                                   <li class="slide">
-                                    <a href="#" class="side-menu__item">Transaction List</a>
-                                   </li>      
-                                   <li class="slide">
-                                          <a href="#" class="side-menu__item">Voucher Heads</a>
-                                      </li>
-                                      <li class="slide">
-                                          <a href="#" class="side-menu__item">Account Types</a>
-                                      </li>
                                   </ul>
                                   <li class="slide__category"><span class="category-name">Reports Section</span></li>
                                   <li class="slide has-sub">

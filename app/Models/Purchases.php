@@ -9,7 +9,7 @@ class Purchases extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['company_id','supplier_id','warehouse_id','bill_no','total_amount','total_discount','purchase_status','payment_status','purchase_date','users_id','remarks'];
+    protected $fillable = ['company_id','supplier_id','warehouse_id','bill_no','total_amount','total_discount','purchase_status','payment_status','purchase_date','users_id','remarks','payment_date','payee_name'];
 
     public function company()
     {
@@ -37,8 +37,10 @@ class Purchases extends Model
     {
         return $this->hasMany(PurchasesDetails::class, 'purchases_id');
     }
-
-
+    public function purchaseDetails()
+    {
+        return $this->hasMany(PurchasesDetails::class, 'purchases_id'); 
+    }
 
 }
 

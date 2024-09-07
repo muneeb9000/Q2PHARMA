@@ -37,7 +37,7 @@ class AreasController extends Controller
      */
     public function store(StoreAreasRequest $request)
     {
-        $validatedData = $request->validate();
+        $validatedData = $request->validated();
         Areas::create($validatedData);
         return redirect()->route('area.index')->with('Success', 'Area Created Successfully');
     }
@@ -58,7 +58,7 @@ class AreasController extends Controller
      */
     public function update(UpdateAreasRequest $request, string $id)
     {
-        $validatedData = $request->validate();
+        $validatedData = $request->validated();
         $areas = Areas::findOrFail($id);
         $areas->update($validatedData);
         return redirect()->route('area.index')->with('Success', 'Area Updated Successfully');

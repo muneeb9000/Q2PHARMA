@@ -54,8 +54,6 @@ class PurchasesController extends Controller
             'supplier_id' => 'required|exists:suppliers,id',
             'warehouse_id' => 'required|exists:warehouses,id',
             'bill_no' => 'required|string|max:255',
-            'purchase_status' => 'required|in:1,2,3,4',
-            'payment_status' => 'required|in:1,2,3,4',
             'purchase_date' => 'required|date',
             'remarks' => 'nullable|string',
             'total_amount' => 'required|numeric|min:0',
@@ -70,14 +68,13 @@ class PurchasesController extends Controller
             'supplier_id' => $validatedData['supplier_id'],
             'warehouse_id' => $validatedData['warehouse_id'],
             'bill_no' => $validatedData['bill_no'],
-            'status' => $validatedData['purchase_status'],
             'purchase_date' => $validatedData['purchase_date'],
             'users_id' => Auth::id(),
             'remarks' => $validatedData['remarks'],
             'total_amount' => $validatedData['total_amount'],
             'total_discount' => $validatedData['total_discount'],
         ]);
-        foreach ($validatedData['purchases'] as $item) {
+        foreach ($request['purchases'] as $item) {
             PurchasesDetails::create([
                 'purchases_id' => $purchase->id,
                 'products_id' => $item['product'],
@@ -126,7 +123,6 @@ class PurchasesController extends Controller
         'supplier_id' => $request['supplier_id'],
         'warehouse_id' => $request['warehouse_id'],
         'bill_no' => $request['bill_no'],
-        'status' => $request['purchase_status'],
         'purchase_date' => $request['purchase_date'],
         'users_id' => Auth::id(),
         'remarks' => $request['remarks'],
@@ -162,6 +158,42 @@ class PurchasesController extends Controller
     return redirect()->route('purchases.index')->with('success', 'Purchase deleted successfully!');
     }
 
+    public function updateStock(Request $request)
+    {
+        $validatedData = $request->validate([
+            'purchases_id' => 'required|exists:purchases,id',
+        ]);
+        $purchase = Purchases::find($validatedData['purchases_id']);
+        $purchaseDetails = PurchasesDetails::where('purchases_id', $validatedData['purchases_id'])->get();
+        foreach ($purchaseDetails as $detail) {
+            $product = Products::find($detail->products_id);
+            $quantityToAdd = (int) $detail->quantity * (int) $product->unit_ratio;
+            $product->current_stock = (int) $product->current_stock + $quantityToAdd;
+            $product->save();
+        }
+        $purchase->purchase_status = 'received';
+        $purchase->save();
+        return redirect()->route('purchases.index')->with('success', 'Stock updated and purchase marked as received successfully!');
+    }
+    
+   
+    public function returnPurchase($id)
+    {
+        $purchase = Purchases::findOrFail($id);
+        $purchase->update(['purchase_status' => 'returned']);
+        $purchaseDetails = PurchasesDetails::where('purchases_id', $id)->get();
+        foreach ($purchaseDetails as $detail) {
+            $product = Products::find($detail->products_id);
+            if ($product) {
+                $quantityToSubtract = (int) $detail->quantity * (int) $product->unit_ratio;
+                $product->current_stock -= $quantityToSubtract;
+                $product->save();
+            }
+        }
+        return redirect()->route('purchases.index')->with('success', 'Purchase marked as returned and stock updated.');
+    }
+    
+
     public function getSuppliers($companyId)
     {
         $suppliers = Supplier::where('company_id', $companyId)->get();
@@ -173,4 +205,20 @@ class PurchasesController extends Controller
         $warehouses = Warehouses::where('company_id', $companyId)->get();
         return response()->json($warehouses);
     }
+
+    public function getPurchases($companyId)
+    {
+        $purchases = Purchases::where('company_id', $companyId)->get();
+        return response()->json($purchases);
+    }
+
+    public function purchasepayment(Request $request,$id)
+    {
+        $purchases = Purchases::findOrFail($id);
+        $purchases->payee_name = $request->payee_name;
+        $purchases->payment_status = 'paid'; 
+        $purchases->update();
+        return redirect()->back()->with('success', 'Purchase updated successfully. Payment status is now paid.');
+    }
+
 }

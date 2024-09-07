@@ -6,12 +6,12 @@
 <div class="main-content app-content">
     <div class="container-fluid">
         <div class="d-md-flex d-block align-items-center justify-content-between my-4 page-header-breadcrumb">
-            <h1 class="page-title fw-semibold fs-18 mb-0">Purchases List</h1>
+            <h1 class="page-title fw-semibold fs-18 mb-0">Purchases Invoices</h1>
             <div class="ms-md-1 ms-0">
                 @php
                     $breadcrumbs = [
                         ['name' => 'Dashboard', 'url' => route('home'), 'icon' => 'ti ti-home-2'],
-                        ['name' => 'Purchases List', 'icon' => 'ti ti-plus'],
+                        ['name' => 'Purchases Invoices', 'icon' => 'ti ti-plus'],
                     ];
                 @endphp
                 <x-breadcrumb :items="$breadcrumbs" />
@@ -23,7 +23,7 @@
                 <div class="card custom-card">
                     <div class="card-header">
                         <div class="card-title">
-                            Purchases List
+                            Purchases Invoices
                         </div>
                     </div>
                     <div class="card-body">
@@ -78,67 +78,17 @@
                                                             'returned' => 'Returned',
                                                         ];
                                                     @endphp
-
-                                                        <td>
-                                                            <span class="badge bg-secondary">
-                                                                {{ $purchaseStatusLabels[$purchase->purchase_status] ?? 'Unknown' }}
-                                                            </span>
-                                                        </td>
-                                                        <td>
-                                                            <span class="badge bg-secondary">
-                                                                {{ $paymentStatusLabels[$purchase->payment_status] ?? 'Unknown' }}
-                                                            </span>
-                                                        </td>
-                                                        <td>
-                                                            {{ $purchase->purchase_date }}
-                                                        </td>
+                                                        <td> {{ $purchaseStatusLabels[$purchase->purchase_status] ?? 'Unknown' }}</td>
+                                                        <td> {{ $paymentStatusLabels[$purchase->payment_status] ?? 'Unknown' }}   </td>
+                                                        <td>{{ $purchase->purchase_date }}</td>
                                                     <td>
                                                      <div class="hstack gap-2 fs-15">
-    <!-- View Button is always available -->
-    <a href="{{ route('purchases.show', $purchase->id) }}" class="btn btn-icon btn-sm btn-primary-light">
-        <i class="ri-eye-line"></i>
-    </a>
-
-    @if($purchase->purchase_status == 'pending')
-        <!-- Edit Button -->
-        <a href="{{ route('purchases.edit', $purchase->id) }}" class="btn btn-icon btn-sm btn-info-light">
-            <i class="ri-edit-line"></i>
-        </a>
-
-        <!-- Delete Button -->
-        <form method="POST" action="{{ route('purchases.destroy', $purchase->id) }}" style="display:inline-block;">
-            @csrf
-            @method('DELETE')
-            <button type="submit" class="btn btn-icon btn-sm btn-danger-light product-btn">
-                <i class="ri-delete-bin-line"></i>
-            </button>
-        </form>
-        
-        <!-- Update Stock Button -->
-        <form action="{{ route('purchases.updateStock') }}" method="POST" style="display:inline-block;">
-            @csrf
-            <input type="hidden" name="purchases_id" value="{{ $purchase->id }}">
-            <button type="submit" class="btn btn-icon btn-sm btn-success-transparent btn-wave">
-                <i class="bi bi-basket"></i>
-            </button>
-        </form>
-    @elseif($purchase->purchase_status == 'received')
-        <!-- Return Button -->
-        <form action="{{ route('purchases.return', $purchase->id) }}" method="POST" style="display:inline-block;">
-            @csrf
-            <input type="hidden" name="purchases_id" value="{{ $purchase->id }}">
-            <button type="submit" class="btn btn-icon btn-sm btn-danger-light">
-                <i class="ri-reply-line"></i> <!-- Replace this icon with the one you want for 'return' -->
-            </button>
-        </form>
-    @elseif($purchase->purchase_status == 'returned')
-        <!-- No additional buttons when the status is 'returned' -->
-    @endif
-</div>
-
-
-                                                    </td>
-                                                </tr>
+                                                        <a href="{{ route('purchases.print', $purchase->id) }}" class="btn btn-icon btn-sm btn-primary-light">
+                                                            <i class="ri-eye-line"></i>
+                                                        </a>
+                                                    </div>
+                                                </td>
+                                            </tr>
                                             @endforeach
                                         @endisset
                                     </tbody>

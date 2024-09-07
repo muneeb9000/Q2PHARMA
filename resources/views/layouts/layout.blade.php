@@ -13,5 +13,7 @@
     </div>
     </div>
     @include('layouts.footer')
+     <script src="https://cdn.jsdelivr.net/npm/apexcharts@latest"></script>
+     @stack('scripts')
 </body>
 </html>
