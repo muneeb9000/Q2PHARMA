@@ -5,6 +5,7 @@ namespace Database\Seeders;
 use App\Models\User;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use Spatie\Permission\Exceptions\PermissionDoesNotExist;
 
 class DatabaseSeeder extends Seeder
 {
@@ -15,6 +16,10 @@ class DatabaseSeeder extends Seeder
     {
         $this->call([
             AdminUserSeeder::class,
+            PermissionSeeder::class,
+            ModuleSeeder::class,
+            DepartmentSeeder::class,
+            DesignationSeeder::class,
         ]);
     }
 

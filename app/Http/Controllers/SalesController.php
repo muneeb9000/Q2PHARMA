@@ -9,6 +9,7 @@ use App\Models\User;
 use App\Models\Products;
 use App\Models\SalesDetails;
 use Illuminate\Http\Request;
+use App\Http\Resources\SaleResource;
 use Illuminate\Support\Facades\Auth;
 
 class SalesController extends Controller
@@ -142,6 +143,35 @@ class SalesController extends Controller
         $sale->payment_status = 'paid'; 
         $sale->update();
         return redirect()->back()->with('success', 'Sale updated successfully. Payment status is now paid.');
+    }
+
+    public function storeSaleAPI(Request $request)
+    {
+        // Store Sale with default company_id = 1, users_id = 1, total_discount = 0 if not provided
+        $sales = Sales::create([
+            'company_id' => $request['company_id'] ?? 1,
+            'customer_id' => $request['customer_id'],
+            'invoice_no' => $request['invoice_no'],
+            'sale_date' => $request['sale_date'],
+            'users_id' => $request['users_id'] ?? 1,
+            'remarks' => $request['remarks'],
+            'total_amount' => $request['total_amount'],
+            'total_discount' => $request['total_discount'] ?? 0,  // Default discount as 0
+        ]);
+
+        // Store Sale Details
+        foreach ($request['sales'] as $item) {
+            SalesDetails::create([
+                'sales_id' => $sales->id,
+                'product_id' => $item['product'],
+                'product_price' => $item['unit_price'],
+                'quantity' => $item['quantity'],
+                'discounts' => $item['discount'] ?? 0, // Default discount as 0 in sale details
+            ]);
+        }
+
+        // Return the newly created sale as a response using SaleResource
+        return new SaleResource($sales);
     }
 
 

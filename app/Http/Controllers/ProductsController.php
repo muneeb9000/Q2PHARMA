@@ -9,6 +9,7 @@ use App\Models\Categories;
 use App\Models\Units;
 use App\Models\companies;
 use Illuminate\Http\Request;
+use App\Http\Resources\ProductResource;
 
 class ProductsController extends Controller
 {
@@ -109,6 +110,12 @@ class ProductsController extends Controller
         dd('working');
         return view('products.upload');
 
+    }
+
+    public function productsapi()
+    {
+        $products = Products::with('companies')->get();
+        return ProductResource::collection($products);
     }
 
 }

@@ -16,16 +16,13 @@ use App\Http\Controllers\WarehousesController;
 use App\Http\Controllers\PurchasesController;
 use App\Http\Controllers\SalesController;
 use App\Http\Controllers\AccountsController;
+use App\Http\Controllers\RoleController;
+use App\Http\Controllers\EmployeeController;
 
 // Public Auth Routes
 Route::get('/login', [AuthController::class, 'index'])->name('login');
 Route::post('/login', [AuthController::class, 'login']);
 Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
-
-// API Routes
-
-Route::get('/api/customers', [CustomersController::class, 'apiIndex']);
-
 
 // Apply middleware to routes
 
@@ -33,6 +30,10 @@ Route::get('/api/customers', [CustomersController::class, 'apiIndex']);
     Route::middleware('CustomAuth')->group(function () {
 // Companies Routes    
     Route::resource('companies', CompaniesController::class);
+// Roles Roles    
+    Route::resource('roles', RoleController::class);   
+    Route::post('/roles/{role}/permissions', [RoleController::class, 'updatePermissions'])->name('roles.updatePermissions');
+ 
 // Cities Routes
     Route::resource('city', CitiesController::class);
 // Area Routes  
@@ -52,6 +53,8 @@ Route::get('/api/customers', [CustomersController::class, 'apiIndex']);
     Route::resource('supplier', SupplierController::class);
 //Warehouse Routes
     Route::resource('warehouse', WarehousesController::class);
+//Employee Routes
+Route::resource('employee', EmployeeController::class);    
 // Purchases Routes
     Route::resource('purchases', PurchasesController::class);
     Route::put('/purchasepayment/{id}', [PurchasesController::class, 'purchasepayment'])->name('purchasepayment');
@@ -82,5 +85,9 @@ Route::get('/api/customers', [CustomersController::class, 'apiIndex']);
     // Auth Routes
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('home');
     Route::get('/chart-data', [DashboardController::class, 'chart']);
-    
+    // API Routes
+    Route::middleware('CustomAuth')->get('/api/customers', [CustomersController::class, 'apiIndex']);
+    Route::middleware('CustomAuth')->get('/api/products', [ProductsController::class, 'productsapi']);
+
+
 });
