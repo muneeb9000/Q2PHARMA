@@ -24,6 +24,9 @@ Route::get('/login', [AuthController::class, 'index'])->name('login');
 Route::post('/login', [AuthController::class, 'login']);
 Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 
+
+
+
 // Apply middleware to routes
 
 // Authentication Routes
@@ -85,9 +88,7 @@ Route::resource('employee', EmployeeController::class);
     // Auth Routes
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('home');
     Route::get('/chart-data', [DashboardController::class, 'chart']);
-    // API Routes
-    Route::middleware('CustomAuth')->get('/api/customers', [CustomersController::class, 'apiIndex']);
-    Route::middleware('CustomAuth')->get('/api/products', [ProductsController::class, 'productsapi']);
+  
 
 
 });

@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Sales;
 use App\Http\Requests\StoreTransactionRequest;
 use App\Http\Requests\UpdateTransactionRequest;
+use App\Http\Resources\SalesInvoiceResource;
 use App\Models\Accounts;
 use App\Models\Products;
 use App\Models\companies;
@@ -120,6 +121,22 @@ class AccountsController extends Controller
         $transaction = Accounts::findOrFail($id);
         $transaction->delete();
         return redirect()->route('accounts.index')->with('success', 'Transaction deleted successfully.');
+    }
+
+    public function salesInvoicesByCustomer($customer_id)
+    {
+        $sales = Sales::where('customer_id', $customer_id)
+                    ->where('payment_status', 'un-paid')
+                    ->get();
+        if ($sales->isEmpty()) {
+            return response()->json([
+                'message' => 'No unpaid sales found for this customer.'
+            ], 404);
+        }
+        return response()->json([
+            'customer_id' => $customer_id,
+            'sales' => SalesInvoiceResource::collection($sales)
+        ], 200);
     }
 
 }

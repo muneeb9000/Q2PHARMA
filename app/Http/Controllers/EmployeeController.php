@@ -45,8 +45,17 @@ class EmployeeController extends Controller
      */
     public function store(Request $request)
     {
-        $employee = Employee::create([
+        $password = bcrypt($request->password);
+        $user = User::create([
+            'name' => $request->name,
+            'email' => $request->email,
+            'password' => $password,
+            'role_id' => $request->role_id,
+        ]);
+        
+        Employee::create([
             'company_id' => $request->company_id,
+            'user_id' => $user->id, 
             'joining_date' => $request->joining_date,
             'designation_id' => $request->designation_id,
             'department_id' => $request->department_id,
@@ -60,15 +69,10 @@ class EmployeeController extends Controller
             'name' => $request->name,
             'email' => $request->email,
         ]);
-        $password = bcrypt($request->password);
-        User::create([
-            'name' => $request->name,
-            'email' => $request->email,
-            'password' => $password,
-            'role_id' => $request->role_id,
-        ]);
+    
         return redirect()->route('employee.index')->with('success', 'Employee created successfully.');
     }
+    
     
     
 

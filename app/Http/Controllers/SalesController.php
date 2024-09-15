@@ -174,5 +174,27 @@ class SalesController extends Controller
         return new SaleResource($sales);
     }
 
+    public function salepaymentapi(Request $request, $id)
+    {
+        // Validate the incoming request
+        $request->validate([
+            'payee_name' => 'required|string|max:255',
+        ]);
 
+        // Find the sale by ID or return a 404 error if not found
+        $sale = Sales::findOrFail($id);
+
+        // Update the payment details
+        $sale->payee_name = $request->payee_name;
+        $sale->payment_status = 'paid'; 
+        $sale->update();
+
+        // Return a JSON response indicating success
+        return response()->json([
+            'message' => 'Sale payment updated successfully.',
+            'sale_id' => $sale->id,
+            'invoice_no' => $sale->invoice_no,
+            'payment_status' => $sale->payment_status
+        ], 200);
+    }
 }
