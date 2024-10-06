@@ -14,9 +14,310 @@
                                 <span class="side-menu__label">Dashboard</span>
                             </a>
                             <ul class="slide-menu child1">
-                            </ul>
+                         </ul>
                         </li>
-                         @php
+                          {{-- SETUP CODING MENU --}}
+
+                                    <li class="slide__category"><span class="category-name">Coding</span></li>
+                                    <li class="slide has-sub">
+                                     <a href="javascript:void(0);" class="side-menu__item">
+                                       <i class="bi bi-gear-wide-connected side-menu__icon"></i>
+                                       <span class="side-menu__label">Coding</span>
+                                       <i class="fe fe-chevron-right side-menu__angle"></i>
+                                   </a>
+                                   <ul class="slide-menu child1">
+                                    <li class="slide">
+                                        <a href="#" class="side-menu__item">Company/Branch Coding</a>
+                                    </li>
+                                    <li class="slide">
+                                     <a href="#" class="side-menu__item">Account Coding</a>
+                                    </li>   
+                                    <li class="slide">
+                                           <a href="#" class="side-menu__item">UOM Coding</a>
+                                       </li>
+                                       <li class="slide">
+                                           <a href="#" class="side-menu__item">Product Group</a>
+                                       </li>
+                                        <li class="slide">
+                                           <a href="#" class="side-menu__item">Product Coding</a>
+                                       </li>
+                                        <li class="slide">
+                                           <a href="#" class="side-menu__item">Product Opening Balance</a>
+                                       </li>
+                                       <li class="slide">
+                                           <a href="#" class="side-menu__item">Route/City Coding</a>
+                                       </li>
+                                       <li class="slide">
+                                           <a href="#" class="side-menu__item">Town/Area Coding</a>
+                                       </li>
+                                       <li class="slide">
+                                           <a href="#" class="side-menu__item">Brick/Sub-Area Coding</a>
+                                       </li>
+                                       <li class="slide">
+                                           <a href="#" class="side-menu__item">Vendor Coding</a>
+                                       </li>
+                                       <li class="slide">
+                                           <a href="#" class="side-menu__item">Customer Coding</a>
+                                       </li>
+                                       <li class="slide">
+                                           <a href="#" class="side-menu__item">Salesman Coding</a>
+                                       </li>
+                                       <li class="slide">
+                                           <a href="#" class="side-menu__item">Sales Rep Coding</a>
+                                       </li>
+                                        <li class="slide">
+                                           <a href="#" class="side-menu__item">Warehouse Coding</a>
+                                       </li>
+                                    </ul>
+                                  <li class="slide__category"><span class="category-name">Invoices</span></li>
+                                  <li class="slide has-sub">
+                                   <a href="javascript:void(0);" class="side-menu__item">
+                                     <i class="bi bi-journal side-menu__icon"></i>
+                                     <span class="side-menu__label">Invoices</span>
+                                     <i class="fe fe-chevron-right side-menu__angle"></i>
+                                 </a>
+                                 <ul class="slide-menu child1">
+                                    <li class="slide has-sub">
+                                        <a href="#" class="side-menu__item">Sales Invoicing
+                                            <i class="fe fe-chevron-right side-menu__angle"></i></a>
+                                        <ul class="slide-menu child2">
+                                            <li class="slide">
+                                                <a href="#" class="side-menu__item">Auto/Manual Sales</a>
+                                            </li>
+                                            <li class="slide">
+                                                <a href="#" class="side-menu__item">Sale Return</a>
+                                            </li>
+                                            <li class="slide">
+                                                <a href="#" class="side-menu__item">Sale Receipts</a>
+                                            </li>
+                                            <li class="slide">
+                                                <a href="#" class="side-menu__item">Sale Summary</a>
+                                            </li>
+                                            <li class="slide">
+                                                <a href="#" class="side-menu__item">Fabric Invoicing</a>
+                                            </li>
+                                        </ul>
+                                        <a href="#" class="side-menu__item">Purchase 
+                                            <i class="fe fe-chevron-right side-menu__angle"></i></a>
+                                        <ul class="slide-menu child2">
+                                            <li class="slide">
+                                                <a href="#" class="side-menu__item">Purchase Entry</a>
+                                            </li>
+                                            <li class="slide">
+                                                <a href="#" class="side-menu__item">Purchase Return</a>
+                                            </li>
+                                            <li class="slide">
+                                                <a href="#" class="side-menu__item">Purchase Order</a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                                  <li class="slide__category"><span class="category-name">Voucher Section</span></li>
+                                  <li class="slide has-sub">
+                                   <a href="javascript:void(0);" class="side-menu__item">
+                                     <i class="bi bi-card-checklist side-menu__icon"></i>
+                                     <span class="side-menu__label">Vouchers</span>
+                                     <i class="fe fe-chevron-right side-menu__angle"></i>
+                                 </a>
+                                 <ul class="slide-menu child1">
+                                    <li class="slide has-sub">
+                                            <li class="slide">
+                                                <a href="#" class="side-menu__item">Cash Payment Voucher</a>
+                                            </li>
+                                            <li class="slide">
+                                                <a href="#" class="side-menu__item">Cash Receipt Voucher</a>
+                                            </li>
+                                            <li class="slide">
+                                                <a href="#" class="side-menu__item">Journal Voucher</a>
+                                            </li>
+                                            <li class="slide">
+                                                <a href="#" class="side-menu__item">Change Party Name</a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                  <li class="slide__category"><span class="category-name">Reports Section</span></li>
+                                  <li class="slide has-sub">
+                                   <a href="javascript:void(0);" class="side-menu__item">
+                                     <i class="bi bi-card-checklist side-menu__icon"></i>
+                                     <span class="side-menu__label">Reports</span>
+                                     <i class="fe fe-chevron-right side-menu__angle"></i>
+                                 </a>
+                                 <ul class="slide-menu child1">
+                                    <li class="slide has-sub">
+                                        <a href="#" class="side-menu__item">Customer Reports
+                                            <i class="fe fe-chevron-right side-menu__angle"></i></a>
+                                        <ul class="slide-menu child2">
+                                            <li class="slide">
+                                                <a href="#" class="side-menu__item">License Status</a>
+                                            </li>
+                                            <li class="slide">
+                                                <a href="#" class="side-menu__item">Defaulter Report</a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li class="slide has-sub">
+                                        <a href="#" class="side-menu__item">Sales Reports
+                                            <i class="fe fe-chevron-right side-menu__angle"></i></a>
+                                        <ul class="slide-menu child2">
+                                            <li class="slide">
+                                                <a href="#" class="side-menu__item">Sales Summary</a>
+                                            </li>
+                                            <li class="slide">
+                                                <a href="#" class="side-menu__item">Sale by Item</a>
+                                            </li>
+                                            <li class="slide">
+                                                <a href="#" class="side-menu__item">Sale by Customer</a>
+                                            </li>
+                                            <li class="slide">
+                                                <a href="#" class="side-menu__item">Sale by Area</a>
+                                            </li>
+                                            <li class="slide">
+                                                <a href="#" class="side-menu__item">Sale by Salesman</a>
+                                            </li>
+                                            <li class="slide">
+                                                <a href="#" class="side-menu__item">Returns Report</a>
+                                            </li>
+                                            <li class="slide">
+                                                <a href="#" class="side-menu__item">Pending For DC</a>
+                                            </li>
+                                        </ul>
+                                    </li>  
+                                    <li class="slide has-sub">
+                                        <a href="#" class="side-menu__item">Purchase Reports
+                                            <i class="fe fe-chevron-right side-menu__angle"></i></a>
+                                        <ul class="slide-menu child2">
+                                            <li class="slide">
+                                                <a href="#" class="side-menu__item">Purchase Summary</a>
+                                            </li>
+                                            <li class="slide">
+                                                <a href="#" class="side-menu__item">Purchase by Item</a>
+                                            </li>
+                                            <li class="slide">
+                                                <a href="#" class="side-menu__item">Purchase by Supplier</a>
+                                            </li>
+                                            <li class="slide">
+                                                <a href="#" class="side-menu__item">Purchase by Vendor</a>
+                                            </li>
+                                            <li class="slide">
+                                                <a href="#" class="side-menu__item">Returns Report</a>
+                                            </li>
+                                        </ul>
+                                    </li> 
+                                    <li class="slide has-sub">
+                                        <a href="#" class="side-menu__item">Inventory Reports
+                                            <i class="fe fe-chevron-right side-menu__angle"></i></a>
+                                        <ul class="slide-menu child2">
+                                            <li class="slide">
+                                                <a href="#" class="side-menu__item">Stock Report</a>
+                                            </li>
+                                            <li class="slide">
+                                                <a href="#" class="side-menu__item">Purchase Report</a>
+                                            </li>
+                                            <li class="slide">
+                                                <a href="#" class="side-menu__item">Stock Valuation Report</a>
+                                            </li>
+                                            <li class="slide">
+                                                <a href="#" class="side-menu__item">Expire Stock Report</a>
+                                            </li>
+                                            <li class="slide">
+                                                <a href="#" class="side-menu__item">Transfer Reports</a>
+                                            </li>
+                                        </ul>
+                                    </li> 
+                                    <li class="slide has-sub">
+                                        <a href="#" class="side-menu__item">Accounts Reports
+                                            <i class="fe fe-chevron-right side-menu__angle"></i></a>
+                                        <ul class="slide-menu child2">
+                                            <li class="slide">
+                                                <a href="#" class="side-menu__item">Account Statment</a>
+                                            </li>
+                                            <li class="slide">
+                                                <a href="#" class="side-menu__item">Income Report</a>
+                                            </li>
+                                            <li class="slide">
+                                                <a href="#" class="side-menu__item">Expense Report</a>
+                                            </li>
+                                            <li class="slide">
+                                                <a href="#" class="side-menu__item">Transactions Report</a>
+                                            </li>
+                                            <li class="slide">
+                                                <a href="#" class="side-menu__item">Balance Sheet</a>
+                                            </li>
+                                            <li class="slide">
+                                                <a href="#" class="side-menu__item">Profit Forcasting</a>
+                                            </li>
+                                            <li class="slide">
+                                                <a href="#" class="side-menu__item">Payable Report</a>
+                                            </li>
+                                            <li class="slide">
+                                                <a href="#" class="side-menu__item">Receivable Report</a>
+                                            </li>
+                                        </ul>
+                                    </li> 
+                                 </ul>
+                                 
+                            <li class="slide__category"><span class="category-name">Utilities Section</span></li>
+                                  <li class="slide has-sub">
+                                   <a href="javascript:void(0);" class="side-menu__item">
+                                     <i class="bi bi-card-checklist side-menu__icon"></i>
+                                     <span class="side-menu__label">Utilities</span>
+                                     <i class="fe fe-chevron-right side-menu__angle"></i>
+                                 </a>
+                                 <ul class="slide-menu child1">
+                                    <li class="slide has-sub">
+                                            <li class="slide">
+                                                <a href="#" class="side-menu__item">IMS Data Export</a>
+                                            </li>
+                                            <li class="slide">
+                                                <a href="#" class="side-menu__item">SAS Data Export</a>
+                                            </li>
+                                            <li class="slide">
+                                                <a href="#" class="side-menu__item">Closing Stock Batchwise</a>
+                                            </li>
+                                            <li class="slide">
+                                                <a href="#" class="side-menu__item">Change Batch Summary No Wise</a>
+                                            </li>
+                                             <li class="slide">
+                                                <a href="#" class="side-menu__item">Update Product Batch & Price</a>
+                                            </li>
+                                             <li class="slide">
+                                                <a href="#" class="side-menu__item">Coding Label Printing</a>
+                                            </li>
+                                             <li class="slide">
+                                                <a href="#" class="side-menu__item">List of Expired License</a>
+                                            </li>
+                                             <li class="slide">
+                                                <a href="#" class="side-menu__item">Email System</a>
+                                            </li>
+                                             <li class="slide">
+                                                <a href="#" class="side-menu__item">Import Data</a>
+                                            </li>
+                                       </li>
+                                </ul>
+                               <li class="slide__category"><span class="category-name">Setting</span></li>
+                                    <li class="slide has-sub">
+                                     <a href="javascript:void(0);" class="side-menu__item">
+                                       <i class="bi bi-gear-wide-connected side-menu__icon"></i>
+                                       <span class="side-menu__label">General Setting</span>
+                                       <i class="fe fe-chevron-right side-menu__angle"></i>
+                                   </a>
+                                   <ul class="slide-menu child1">
+                                    <li class="slide">
+                                        <a href="#" class="side-menu__item">System Setup</a>
+                                    </li>
+                                    <li class="slide">
+                                     <a href="#" class="side-menu__item">Email Setup</a>
+                                    </li>   
+                                    <li class="slide">
+                                           <a href="{{ route('roles.index') }}" class="side-menu__item">Roles</a>
+                                       </li>
+                                       <li class="slide">
+                                           <a href="#" class="side-menu__item">Permissions</a>
+                                       </li>
+                                   </ul> 
+                           
+                                   
+                         {{-- @php
                                 $user = Auth::user();
                                 $isSuperAdmin = $user && $user->role_id == 0;
                                 function userHasPermission($permission) {
@@ -106,9 +407,9 @@
                                     'transaction_view' => $isSuperAdmin || userHasPermission('transaction_view'),
                                     'transaction_delete' => $isSuperAdmin || userHasPermission('transaction_delete'),
 
-                                ];
+                                ]; --}}
                             @endphp
-                            @if ($permissions['companies_view'] ||
+                            {{-- @if ($permissions['companies_view'] ||
                                  $permissions['companies_add'])
                                     <li class="slide__category"><span class="category-name">Company</span></li>
                                     <li class="slide has-sub">
@@ -357,148 +658,9 @@
                                                     @endif
                                                 </ul>
                                             </li>
-                                        @endif
-                                  <li class="slide__category"><span class="category-name">Reports Section</span></li>
-                                  <li class="slide has-sub">
-                                   <a href="javascript:void(0);" class="side-menu__item">
-                                     <i class="bi bi-card-checklist side-menu__icon"></i>
-                                     <span class="side-menu__label">Reports</span>
-                                     <i class="fe fe-chevron-right side-menu__angle"></i>
-                                 </a>
-                                 <ul class="slide-menu child1">
-                                    <li class="slide has-sub">
-                                        <a href="#" class="side-menu__item">Customer Reports
-                                            <i class="fe fe-chevron-right side-menu__angle"></i></a>
-                                        <ul class="slide-menu child2">
-                                            <li class="slide">
-                                                <a href="#" class="side-menu__item">License Status</a>
-                                            </li>
-                                            <li class="slide">
-                                                <a href="#" class="side-menu__item">Defaulter Report</a>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                    <li class="slide has-sub">
-                                        <a href="#" class="side-menu__item">Sales Reports
-                                            <i class="fe fe-chevron-right side-menu__angle"></i></a>
-                                        <ul class="slide-menu child2">
-                                            <li class="slide">
-                                                <a href="#" class="side-menu__item">Sales Summary</a>
-                                            </li>
-                                            <li class="slide">
-                                                <a href="#" class="side-menu__item">Sale by Item</a>
-                                            </li>
-                                            <li class="slide">
-                                                <a href="#" class="side-menu__item">Sale by Customer</a>
-                                            </li>
-                                            <li class="slide">
-                                                <a href="#" class="side-menu__item">Sale by Area</a>
-                                            </li>
-                                            <li class="slide">
-                                                <a href="#" class="side-menu__item">Sale by Salesman</a>
-                                            </li>
-                                            <li class="slide">
-                                                <a href="#" class="side-menu__item">Returns Report</a>
-                                            </li>
-                                            <li class="slide">
-                                                <a href="#" class="side-menu__item">Pending For DC</a>
-                                            </li>
-                                        </ul>
-                                    </li>  
-                                    <li class="slide has-sub">
-                                        <a href="#" class="side-menu__item">Purchase Reports
-                                            <i class="fe fe-chevron-right side-menu__angle"></i></a>
-                                        <ul class="slide-menu child2">
-                                            <li class="slide">
-                                                <a href="#" class="side-menu__item">Purchase Summary</a>
-                                            </li>
-                                            <li class="slide">
-                                                <a href="#" class="side-menu__item">Purchase by Item</a>
-                                            </li>
-                                            <li class="slide">
-                                                <a href="#" class="side-menu__item">Purchase by Supplier</a>
-                                            </li>
-                                            <li class="slide">
-                                                <a href="#" class="side-menu__item">Purchase by Vendor</a>
-                                            </li>
-                                            <li class="slide">
-                                                <a href="#" class="side-menu__item">Returns Report</a>
-                                            </li>
-                                        </ul>
-                                    </li> 
-                                    <li class="slide has-sub">
-                                        <a href="#" class="side-menu__item">Inventory Reports
-                                            <i class="fe fe-chevron-right side-menu__angle"></i></a>
-                                        <ul class="slide-menu child2">
-                                            <li class="slide">
-                                                <a href="#" class="side-menu__item">Stock Report</a>
-                                            </li>
-                                            <li class="slide">
-                                                <a href="#" class="side-menu__item">Purchase Report</a>
-                                            </li>
-                                            <li class="slide">
-                                                <a href="#" class="side-menu__item">Stock Valuation Report</a>
-                                            </li>
-                                            <li class="slide">
-                                                <a href="#" class="side-menu__item">Expire Stock Report</a>
-                                            </li>
-                                            <li class="slide">
-                                                <a href="#" class="side-menu__item">Transfer Reports</a>
-                                            </li>
-                                        </ul>
-                                    </li> 
-                                    <li class="slide has-sub">
-                                        <a href="#" class="side-menu__item">Accounts Reports
-                                            <i class="fe fe-chevron-right side-menu__angle"></i></a>
-                                        <ul class="slide-menu child2">
-                                            <li class="slide">
-                                                <a href="#" class="side-menu__item">Account Statment</a>
-                                            </li>
-                                            <li class="slide">
-                                                <a href="#" class="side-menu__item">Income Report</a>
-                                            </li>
-                                            <li class="slide">
-                                                <a href="#" class="side-menu__item">Expense Report</a>
-                                            </li>
-                                            <li class="slide">
-                                                <a href="#" class="side-menu__item">Transactions Report</a>
-                                            </li>
-                                            <li class="slide">
-                                                <a href="#" class="side-menu__item">Balance Sheet</a>
-                                            </li>
-                                            <li class="slide">
-                                                <a href="#" class="side-menu__item">Profit Forcasting</a>
-                                            </li>
-                                            <li class="slide">
-                                                <a href="#" class="side-menu__item">Payable Report</a>
-                                            </li>
-                                            <li class="slide">
-                                                <a href="#" class="side-menu__item">Receivable Report</a>
-                                            </li>
-                                        </ul>
-                                    </li> 
-                                 </ul>
-                                  <li class="slide__category"><span class="category-name">Setting</span></li>
-                                    <li class="slide has-sub">
-                                     <a href="javascript:void(0);" class="side-menu__item">
-                                       <i class="bi bi-gear-wide-connected side-menu__icon"></i>
-                                       <span class="side-menu__label">General Setting</span>
-                                       <i class="fe fe-chevron-right side-menu__angle"></i>
-                                   </a>
-                                   <ul class="slide-menu child1">
-                                    <li class="slide">
-                                        <a href="#" class="side-menu__item">System Setup</a>
-                                    </li>
-                                    <li class="slide">
-                                     <a href="#" class="side-menu__item">Email Setup</a>
-                                    </li>   
-                                    <li class="slide">
-                                           <a href="{{ route('roles.index') }}" class="side-menu__item">Roles</a>
-                                       </li>
-                                       <li class="slide">
-                                           <a href="#" class="side-menu__item">Permissions</a>
-                                       </li>
-                                   </ul>
+                                        @endif --}}
+                                
+                                  
                             </nav>
                         </div>
                     </aside>
